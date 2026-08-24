@@ -1,0 +1,209 @@
+condition,outcome,family,forecast_model,model_ate,n_prompt_variants,n_within_model_forecasts
+Consensus,behavior_mean,Google,gemini-2.5-flash-lite,0.5,2,2
+Consensus,belief_post,Google,gemini-2.5-flash-lite,1.25,2,2
+Consensus,concern_mean,Google,gemini-2.5-flash-lite,0.875,2,2
+Consensus,distrust_post,Google,gemini-2.5-flash-lite,-1.25,2,2
+Consensus,donation_ams,Google,gemini-2.5-flash-lite,0.1,2,2
+Consensus,funding_perceptions,Google,gemini-2.5-flash-lite,0.65,2,2
+Consensus,inst_trust_mean,Google,gemini-2.5-flash-lite,0.375,2,2
+Consensus,newsletter_signup,Google,gemini-2.5-flash-lite,0.005,2,2
+Consensus,policy_general,Google,gemini-2.5-flash-lite,0.975,2,2
+Consensus,policy_role_mean,Google,gemini-2.5-flash-lite,1.25,2,2
+Consensus,policy_specific_mean,Google,gemini-2.5-flash-lite,0.875,2,2
+Consensus,trust_multidimensional,Google,gemini-2.5-flash-lite,1.65,2,2
+Consensus,trust_post,Google,gemini-2.5-flash-lite,1.65,2,2
+Corporate reliance,behavior_mean,Google,gemini-2.5-flash-lite,0.5,2,2
+Corporate reliance,belief_post,Google,gemini-2.5-flash-lite,0.65,2,2
+Corporate reliance,concern_mean,Google,gemini-2.5-flash-lite,0.6000000000000001,2,2
+Corporate reliance,distrust_post,Google,gemini-2.5-flash-lite,-1.5,2,2
+Corporate reliance,donation_ams,Google,gemini-2.5-flash-lite,0.1,2,2
+Corporate reliance,funding_perceptions,Google,gemini-2.5-flash-lite,1,2,2
+Corporate reliance,inst_trust_mean,Google,gemini-2.5-flash-lite,0.5,2,2
+Corporate reliance,newsletter_signup,Google,gemini-2.5-flash-lite,0.005,2,2
+Corporate reliance,policy_general,Google,gemini-2.5-flash-lite,0.6499999999999999,2,2
+Corporate reliance,policy_role_mean,Google,gemini-2.5-flash-lite,1.4,2,2
+Corporate reliance,policy_specific_mean,Google,gemini-2.5-flash-lite,0.6499999999999999,2,2
+Corporate reliance,trust_multidimensional,Google,gemini-2.5-flash-lite,1.2,2,2
+Corporate reliance,trust_post,Google,gemini-2.5-flash-lite,1,2,2
+Extreme weather predictions,behavior_mean,Google,gemini-2.5-flash-lite,0.5,2,2
+Extreme weather predictions,belief_post,Google,gemini-2.5-flash-lite,0.475,2,2
+Extreme weather predictions,concern_mean,Google,gemini-2.5-flash-lite,0.44999999999999996,2,2
+Extreme weather predictions,distrust_post,Google,gemini-2.5-flash-lite,-0.5,2,2
+Extreme weather predictions,donation_ams,Google,gemini-2.5-flash-lite,0.07500000000000001,2,2
+Extreme weather predictions,funding_perceptions,Google,gemini-2.5-flash-lite,0.4,2,2
+Extreme weather predictions,inst_trust_mean,Google,gemini-2.5-flash-lite,0.25,2,2
+Extreme weather predictions,newsletter_signup,Google,gemini-2.5-flash-lite,0.0075,2,2
+Extreme weather predictions,policy_general,Google,gemini-2.5-flash-lite,0.4,2,2
+Extreme weather predictions,policy_role_mean,Google,gemini-2.5-flash-lite,0.4,2,2
+Extreme weather predictions,policy_specific_mean,Google,gemini-2.5-flash-lite,0.375,2,2
+Extreme weather predictions,trust_multidimensional,Google,gemini-2.5-flash-lite,0.4,2,2
+Extreme weather predictions,trust_post,Google,gemini-2.5-flash-lite,0.4,2,2
+Former skeptics,behavior_mean,Google,gemini-2.5-flash-lite,0.5,2,2
+Former skeptics,belief_post,Google,gemini-2.5-flash-lite,1.25,2,2
+Former skeptics,concern_mean,Google,gemini-2.5-flash-lite,0.8,2,2
+Former skeptics,distrust_post,Google,gemini-2.5-flash-lite,-1.25,2,2
+Former skeptics,donation_ams,Google,gemini-2.5-flash-lite,0.1,2,2
+Former skeptics,funding_perceptions,Google,gemini-2.5-flash-lite,0.7,2,2
+Former skeptics,inst_trust_mean,Google,gemini-2.5-flash-lite,0.35,2,2
+Former skeptics,newsletter_signup,Google,gemini-2.5-flash-lite,0.005,2,2
+Former skeptics,policy_general,Google,gemini-2.5-flash-lite,0.75,2,2
+Former skeptics,policy_role_mean,Google,gemini-2.5-flash-lite,1.2,2,2
+Former skeptics,policy_specific_mean,Google,gemini-2.5-flash-lite,0.65,2,2
+Former skeptics,trust_multidimensional,Google,gemini-2.5-flash-lite,1,2,2
+Former skeptics,trust_post,Google,gemini-2.5-flash-lite,1.1,2,2
+Funding,behavior_mean,Google,gemini-2.5-flash-lite,0.5,2,2
+Funding,belief_post,Google,gemini-2.5-flash-lite,0.475,2,2
+Funding,concern_mean,Google,gemini-2.5-flash-lite,0.4,2,2
+Funding,distrust_post,Google,gemini-2.5-flash-lite,-1.25,2,2
+Funding,donation_ams,Google,gemini-2.5-flash-lite,0.07500000000000001,2,2
+Funding,funding_perceptions,Google,gemini-2.5-flash-lite,1.25,2,2
+Funding,inst_trust_mean,Google,gemini-2.5-flash-lite,0.225,2,2
+Funding,newsletter_signup,Google,gemini-2.5-flash-lite,0.0035,2,2
+Funding,policy_general,Google,gemini-2.5-flash-lite,0.45,2,2
+Funding,policy_role_mean,Google,gemini-2.5-flash-lite,0.775,2,2
+Funding,policy_specific_mean,Google,gemini-2.5-flash-lite,0.35,2,2
+Funding,trust_multidimensional,Google,gemini-2.5-flash-lite,0.725,2,2
+Funding,trust_post,Google,gemini-2.5-flash-lite,0.675,2,2
+High public trust,behavior_mean,Google,gemini-2.5-flash-lite,0.5,2,2
+High public trust,belief_post,Google,gemini-2.5-flash-lite,0.65,2,2
+High public trust,concern_mean,Google,gemini-2.5-flash-lite,0.6000000000000001,2,2
+High public trust,distrust_post,Google,gemini-2.5-flash-lite,-1.5,2,2
+High public trust,donation_ams,Google,gemini-2.5-flash-lite,0.1,2,2
+High public trust,funding_perceptions,Google,gemini-2.5-flash-lite,0.65,2,2
+High public trust,inst_trust_mean,Google,gemini-2.5-flash-lite,0.8999999999999999,2,2
+High public trust,newsletter_signup,Google,gemini-2.5-flash-lite,0.005,2,2
+High public trust,policy_general,Google,gemini-2.5-flash-lite,0.75,2,2
+High public trust,policy_role_mean,Google,gemini-2.5-flash-lite,1.25,2,2
+High public trust,policy_specific_mean,Google,gemini-2.5-flash-lite,0.6000000000000001,2,2
+High public trust,trust_multidimensional,Google,gemini-2.5-flash-lite,1.9,2,2
+High public trust,trust_post,Google,gemini-2.5-flash-lite,2,2,2
+Interview Prof. Maraun,behavior_mean,Google,gemini-2.5-flash-lite,0.5,2,2
+Interview Prof. Maraun,belief_post,Google,gemini-2.5-flash-lite,0.55,2,2
+Interview Prof. Maraun,concern_mean,Google,gemini-2.5-flash-lite,0.55,2,2
+Interview Prof. Maraun,distrust_post,Google,gemini-2.5-flash-lite,-0.75,2,2
+Interview Prof. Maraun,donation_ams,Google,gemini-2.5-flash-lite,0.07500000000000001,2,2
+Interview Prof. Maraun,funding_perceptions,Google,gemini-2.5-flash-lite,0.5,2,2
+Interview Prof. Maraun,inst_trust_mean,Google,gemini-2.5-flash-lite,0.4,2,2
+Interview Prof. Maraun,newsletter_signup,Google,gemini-2.5-flash-lite,0.005,2,2
+Interview Prof. Maraun,policy_general,Google,gemini-2.5-flash-lite,0.5,2,2
+Interview Prof. Maraun,policy_role_mean,Google,gemini-2.5-flash-lite,1.25,2,2
+Interview Prof. Maraun,policy_specific_mean,Google,gemini-2.5-flash-lite,0.4,2,2
+Interview Prof. Maraun,trust_multidimensional,Google,gemini-2.5-flash-lite,1,2,2
+Interview Prof. Maraun,trust_post,Google,gemini-2.5-flash-lite,0.85,2,2
+Interview Prof. Sebille,behavior_mean,Google,gemini-2.5-flash-lite,0.5,2,2
+Interview Prof. Sebille,belief_post,Google,gemini-2.5-flash-lite,0.75,2,2
+Interview Prof. Sebille,concern_mean,Google,gemini-2.5-flash-lite,0.6000000000000001,2,2
+Interview Prof. Sebille,distrust_post,Google,gemini-2.5-flash-lite,-1.5,2,2
+Interview Prof. Sebille,donation_ams,Google,gemini-2.5-flash-lite,0.07500000000000001,2,2
+Interview Prof. Sebille,funding_perceptions,Google,gemini-2.5-flash-lite,0.6,2,2
+Interview Prof. Sebille,inst_trust_mean,Google,gemini-2.5-flash-lite,0.35,2,2
+Interview Prof. Sebille,newsletter_signup,Google,gemini-2.5-flash-lite,0.005,2,2
+Interview Prof. Sebille,policy_general,Google,gemini-2.5-flash-lite,0.5,2,2
+Interview Prof. Sebille,policy_role_mean,Google,gemini-2.5-flash-lite,1,2,2
+Interview Prof. Sebille,policy_specific_mean,Google,gemini-2.5-flash-lite,0.4,2,2
+Interview Prof. Sebille,trust_multidimensional,Google,gemini-2.5-flash-lite,1.25,2,2
+Interview Prof. Sebille,trust_post,Google,gemini-2.5-flash-lite,1.2,2,2
+Measurement & modeling (1),behavior_mean,Google,gemini-2.5-flash-lite,0.5,2,2
+Measurement & modeling (1),belief_post,Google,gemini-2.5-flash-lite,1,2,2
+Measurement & modeling (1),concern_mean,Google,gemini-2.5-flash-lite,0.75,2,2
+Measurement & modeling (1),distrust_post,Google,gemini-2.5-flash-lite,-0.6,2,2
+Measurement & modeling (1),donation_ams,Google,gemini-2.5-flash-lite,0.1,2,2
+Measurement & modeling (1),funding_perceptions,Google,gemini-2.5-flash-lite,0.6,2,2
+Measurement & modeling (1),inst_trust_mean,Google,gemini-2.5-flash-lite,0.65,2,2
+Measurement & modeling (1),newsletter_signup,Google,gemini-2.5-flash-lite,0.005,2,2
+Measurement & modeling (1),policy_general,Google,gemini-2.5-flash-lite,0.6,2,2
+Measurement & modeling (1),policy_role_mean,Google,gemini-2.5-flash-lite,1.05,2,2
+Measurement & modeling (1),policy_specific_mean,Google,gemini-2.5-flash-lite,0.45,2,2
+Measurement & modeling (1),trust_multidimensional,Google,gemini-2.5-flash-lite,0.9,2,2
+Measurement & modeling (1),trust_post,Google,gemini-2.5-flash-lite,0.8,2,2
+Measurement & modeling (2),behavior_mean,Google,gemini-2.5-flash-lite,0.5,2,2
+Measurement & modeling (2),belief_post,Google,gemini-2.5-flash-lite,1,2,2
+Measurement & modeling (2),concern_mean,Google,gemini-2.5-flash-lite,0.75,2,2
+Measurement & modeling (2),distrust_post,Google,gemini-2.5-flash-lite,-1.1,2,2
+Measurement & modeling (2),donation_ams,Google,gemini-2.5-flash-lite,0.1,2,2
+Measurement & modeling (2),funding_perceptions,Google,gemini-2.5-flash-lite,0.95,2,2
+Measurement & modeling (2),inst_trust_mean,Google,gemini-2.5-flash-lite,0.55,2,2
+Measurement & modeling (2),newsletter_signup,Google,gemini-2.5-flash-lite,0.005,2,2
+Measurement & modeling (2),policy_general,Google,gemini-2.5-flash-lite,0.75,2,2
+Measurement & modeling (2),policy_role_mean,Google,gemini-2.5-flash-lite,1.75,2,2
+Measurement & modeling (2),policy_specific_mean,Google,gemini-2.5-flash-lite,0.55,2,2
+Measurement & modeling (2),trust_multidimensional,Google,gemini-2.5-flash-lite,1.4,2,2
+Measurement & modeling (2),trust_post,Google,gemini-2.5-flash-lite,1.4,2,2
+Model accuracy,behavior_mean,Google,gemini-2.5-flash-lite,0.5,2,2
+Model accuracy,belief_post,Google,gemini-2.5-flash-lite,1.1,2,2
+Model accuracy,concern_mean,Google,gemini-2.5-flash-lite,0.65,2,2
+Model accuracy,distrust_post,Google,gemini-2.5-flash-lite,-0.6,2,2
+Model accuracy,donation_ams,Google,gemini-2.5-flash-lite,0.07500000000000001,2,2
+Model accuracy,funding_perceptions,Google,gemini-2.5-flash-lite,0.55,2,2
+Model accuracy,inst_trust_mean,Google,gemini-2.5-flash-lite,0.30000000000000004,2,2
+Model accuracy,newsletter_signup,Google,gemini-2.5-flash-lite,0.0035,2,2
+Model accuracy,policy_general,Google,gemini-2.5-flash-lite,0.6,2,2
+Model accuracy,policy_role_mean,Google,gemini-2.5-flash-lite,1,2,2
+Model accuracy,policy_specific_mean,Google,gemini-2.5-flash-lite,0.5,2,2
+Model accuracy,trust_multidimensional,Google,gemini-2.5-flash-lite,0.95,2,2
+Model accuracy,trust_post,Google,gemini-2.5-flash-lite,1.05,2,2
+Oil industry misinformation,behavior_mean,Google,gemini-2.5-flash-lite,1,2,2
+Oil industry misinformation,belief_post,Google,gemini-2.5-flash-lite,2,2,2
+Oil industry misinformation,concern_mean,Google,gemini-2.5-flash-lite,1.65,2,2
+Oil industry misinformation,distrust_post,Google,gemini-2.5-flash-lite,-4.5,2,2
+Oil industry misinformation,donation_ams,Google,gemini-2.5-flash-lite,0.15000000000000002,2,2
+Oil industry misinformation,funding_perceptions,Google,gemini-2.5-flash-lite,1.25,2,2
+Oil industry misinformation,inst_trust_mean,Google,gemini-2.5-flash-lite,0.5,2,2
+Oil industry misinformation,newsletter_signup,Google,gemini-2.5-flash-lite,0.005,2,2
+Oil industry misinformation,policy_general,Google,gemini-2.5-flash-lite,1.5,2,2
+Oil industry misinformation,policy_role_mean,Google,gemini-2.5-flash-lite,2.25,2,2
+Oil industry misinformation,policy_specific_mean,Google,gemini-2.5-flash-lite,1.5,2,2
+Oil industry misinformation,trust_multidimensional,Google,gemini-2.5-flash-lite,2.65,2,2
+Oil industry misinformation,trust_post,Google,gemini-2.5-flash-lite,3.25,2,2
+Peer-review,behavior_mean,Google,gemini-2.5-flash-lite,0.5,2,2
+Peer-review,belief_post,Google,gemini-2.5-flash-lite,0.75,2,2
+Peer-review,concern_mean,Google,gemini-2.5-flash-lite,0.6000000000000001,2,2
+Peer-review,distrust_post,Google,gemini-2.5-flash-lite,-0.5,2,2
+Peer-review,donation_ams,Google,gemini-2.5-flash-lite,0.07500000000000001,2,2
+Peer-review,funding_perceptions,Google,gemini-2.5-flash-lite,0.44999999999999996,2,2
+Peer-review,inst_trust_mean,Google,gemini-2.5-flash-lite,0.3,2,2
+Peer-review,newsletter_signup,Google,gemini-2.5-flash-lite,0.005,2,2
+Peer-review,policy_general,Google,gemini-2.5-flash-lite,0.65,2,2
+Peer-review,policy_role_mean,Google,gemini-2.5-flash-lite,1.25,2,2
+Peer-review,policy_specific_mean,Google,gemini-2.5-flash-lite,0.55,2,2
+Peer-review,trust_multidimensional,Google,gemini-2.5-flash-lite,1.25,2,2
+Peer-review,trust_post,Google,gemini-2.5-flash-lite,1.15,2,2
+Portrait Prof. Cherry,behavior_mean,Google,gemini-2.5-flash-lite,0.5,2,2
+Portrait Prof. Cherry,belief_post,Google,gemini-2.5-flash-lite,0.775,2,2
+Portrait Prof. Cherry,concern_mean,Google,gemini-2.5-flash-lite,0.6,2,2
+Portrait Prof. Cherry,distrust_post,Google,gemini-2.5-flash-lite,-0.5,2,2
+Portrait Prof. Cherry,donation_ams,Google,gemini-2.5-flash-lite,0.07500000000000001,2,2
+Portrait Prof. Cherry,funding_perceptions,Google,gemini-2.5-flash-lite,0.325,2,2
+Portrait Prof. Cherry,inst_trust_mean,Google,gemini-2.5-flash-lite,0.55,2,2
+Portrait Prof. Cherry,newsletter_signup,Google,gemini-2.5-flash-lite,0.0035,2,2
+Portrait Prof. Cherry,policy_general,Google,gemini-2.5-flash-lite,0.5,2,2
+Portrait Prof. Cherry,policy_role_mean,Google,gemini-2.5-flash-lite,0.85,2,2
+Portrait Prof. Cherry,policy_specific_mean,Google,gemini-2.5-flash-lite,0.45,2,2
+Portrait Prof. Cherry,trust_multidimensional,Google,gemini-2.5-flash-lite,1.25,2,2
+Portrait Prof. Cherry,trust_post,Google,gemini-2.5-flash-lite,1.225,2,2
+Scientist community helpers,behavior_mean,Google,gemini-2.5-flash-lite,0.5,2,2
+Scientist community helpers,belief_post,Google,gemini-2.5-flash-lite,0.775,2,2
+Scientist community helpers,concern_mean,Google,gemini-2.5-flash-lite,0.6,2,2
+Scientist community helpers,distrust_post,Google,gemini-2.5-flash-lite,-1.5,2,2
+Scientist community helpers,donation_ams,Google,gemini-2.5-flash-lite,0.1,2,2
+Scientist community helpers,funding_perceptions,Google,gemini-2.5-flash-lite,0.5,2,2
+Scientist community helpers,inst_trust_mean,Google,gemini-2.5-flash-lite,0.775,2,2
+Scientist community helpers,newsletter_signup,Google,gemini-2.5-flash-lite,0.005,2,2
+Scientist community helpers,policy_general,Google,gemini-2.5-flash-lite,0.675,2,2
+Scientist community helpers,policy_role_mean,Google,gemini-2.5-flash-lite,1.5,2,2
+Scientist community helpers,policy_specific_mean,Google,gemini-2.5-flash-lite,0.625,2,2
+Scientist community helpers,trust_multidimensional,Google,gemini-2.5-flash-lite,1.35,2,2
+Scientist community helpers,trust_post,Google,gemini-2.5-flash-lite,1.25,2,2
+Social justice,behavior_mean,Google,gemini-2.5-flash-lite,1,2,2
+Social justice,belief_post,Google,gemini-2.5-flash-lite,1.15,2,2
+Social justice,concern_mean,Google,gemini-2.5-flash-lite,1.45,2,2
+Social justice,distrust_post,Google,gemini-2.5-flash-lite,-1.75,2,2
+Social justice,donation_ams,Google,gemini-2.5-flash-lite,0.125,2,2
+Social justice,funding_perceptions,Google,gemini-2.5-flash-lite,2,2,2
+Social justice,inst_trust_mean,Google,gemini-2.5-flash-lite,0.6,2,2
+Social justice,newsletter_signup,Google,gemini-2.5-flash-lite,0.0035,2,2
+Social justice,policy_general,Google,gemini-2.5-flash-lite,1.7,2,2
+Social justice,policy_role_mean,Google,gemini-2.5-flash-lite,2.3,2,2
+Social justice,policy_specific_mean,Google,gemini-2.5-flash-lite,1.4,2,2
+Social justice,trust_multidimensional,Google,gemini-2.5-flash-lite,1.65,2,2
+Social justice,trust_post,Google,gemini-2.5-flash-lite,1.9,2,2

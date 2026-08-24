@@ -1,0 +1,417 @@
+condition,family,forecast_model,prompt_variant,completion,outcome,forecast_ate
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,behavior_mean,0.5
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,belief_post,1
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,concern_mean,0.8
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,distrust_post,-1.5
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,donation_ams,0.1
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,funding_perceptions,1.2
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,inst_trust_mean,0.5
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,newsletter_signup,0.005
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_general,0.7
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_role_mean,1.8
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_specific_mean,0.6
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_multidimensional,1.2
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_post,1
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,behavior_mean,1.5
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,belief_post,2
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,concern_mean,2.5
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,distrust_post,-3
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,donation_ams,0.2
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,funding_perceptions,3.5
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,inst_trust_mean,1
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,newsletter_signup,0.005
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_general,3
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_role_mean,4
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_specific_mean,2.5
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_multidimensional,3
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_post,3.5
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,behavior_mean,0.5
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,belief_post,0.8
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,concern_mean,0.7
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,distrust_post,-1
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,donation_ams,0.1
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,funding_perceptions,0.5
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,inst_trust_mean,0.6
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,newsletter_signup,0.005
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_general,0.7
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_role_mean,1.5
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_specific_mean,0.6
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_multidimensional,1.2
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_post,1
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,behavior_mean,0.5
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,belief_post,0.75
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,concern_mean,0.5
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,distrust_post,-1
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,donation_ams,0.1
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,funding_perceptions,1.5
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,inst_trust_mean,0.25
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,newsletter_signup,0.005
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_general,0.5
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_role_mean,0.75
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_specific_mean,0.4
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_multidimensional,0.75
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_post,0.75
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,behavior_mean,1.5
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,belief_post,3
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,concern_mean,2.5
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,distrust_post,-4
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,donation_ams,0.2
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,funding_perceptions,1
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,inst_trust_mean,0.5
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,newsletter_signup,0.005
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_general,2
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_role_mean,2.5
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_specific_mean,1.8
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_multidimensional,2.8
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_post,3.5
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,behavior_mean,0.5
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,belief_post,1.2
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,concern_mean,0.8
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,distrust_post,-0.7
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,donation_ams,0.1
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,funding_perceptions,0.6
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,inst_trust_mean,0.9
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,newsletter_signup,0.005
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_general,0.7
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_role_mean,1.1
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_specific_mean,0.5
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_multidimensional,1
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_post,0.9
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,behavior_mean,0.5
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,belief_post,1.5
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,concern_mean,0.8
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,distrust_post,-1
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,donation_ams,0.1
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,funding_perceptions,0.7
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,inst_trust_mean,0.4
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,newsletter_signup,0.005
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_general,0.6
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_role_mean,1.2
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_specific_mean,0.5
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_multidimensional,1
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_post,1.1
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,behavior_mean,0.5
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,belief_post,1
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,concern_mean,0.8
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,distrust_post,-1.5
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,donation_ams,0.1
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,funding_perceptions,0.5
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,inst_trust_mean,1.2
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,newsletter_signup,0.005
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_general,1
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_role_mean,1.5
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_specific_mean,0.8
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_multidimensional,2
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_post,2.5
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,behavior_mean,0.5
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,belief_post,1.2
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,concern_mean,0.8
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,distrust_post,-0.7
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,donation_ams,0.1
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,funding_perceptions,0.9
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,inst_trust_mean,0.6
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,newsletter_signup,0.005
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_general,0.7
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_role_mean,1.5
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_specific_mean,0.4
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_multidimensional,1
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_post,1.1
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,behavior_mean,0.5
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,belief_post,1.2
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,concern_mean,0.8
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,distrust_post,-0.5
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,donation_ams,0.1
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,funding_perceptions,0.7
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,inst_trust_mean,0.3
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,newsletter_signup,0.005
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_general,0.9
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_role_mean,1.5
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_specific_mean,0.8
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_multidimensional,1
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_post,1.1
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,behavior_mean,0.5
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,belief_post,0.75
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,concern_mean,0.5
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,distrust_post,-1.5
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,donation_ams,0.1
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,funding_perceptions,0.5
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,inst_trust_mean,0.75
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,newsletter_signup,0.005
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_general,0.75
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_role_mean,1.5
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_specific_mean,0.75
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_multidimensional,1.5
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_post,1.5
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,behavior_mean,0.5
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,belief_post,1.5
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,concern_mean,1
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,distrust_post,-1
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,donation_ams,0.1
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,funding_perceptions,0.8
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,inst_trust_mean,0.5
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,newsletter_signup,0.005
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_general,1.2
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_role_mean,1.5
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_specific_mean,1
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_multidimensional,1.8
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_post,1.8
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,behavior_mean,0.5
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,belief_post,0.8
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,concern_mean,0.7
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,distrust_post,-0.5
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,donation_ams,0.1
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,funding_perceptions,0.4
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,inst_trust_mean,0.6
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,newsletter_signup,0.005
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_general,0.5
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_role_mean,0.7
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_specific_mean,0.4
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_multidimensional,1
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_post,1.2
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,behavior_mean,0.5
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,belief_post,1.2
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,concern_mean,0.8
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,distrust_post,-0.7
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,donation_ams,0.1
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,funding_perceptions,0.6
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,inst_trust_mean,0.4
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,newsletter_signup,0.005
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_general,0.7
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_role_mean,1
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_specific_mean,0.6
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_multidimensional,0.9
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_post,1.1
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,behavior_mean,0.5
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,belief_post,1.2
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,concern_mean,0.8
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,distrust_post,-1.5
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,donation_ams,0.1
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,funding_perceptions,0.7
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,inst_trust_mean,0.4
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,newsletter_signup,0.005
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_general,0.6
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_role_mean,1
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_specific_mean,0.5
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_multidimensional,1.3
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_post,1.4
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,behavior_mean,0.5
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,belief_post,0.2
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,concern_mean,0.3
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,distrust_post,-0.5
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,donation_ams,0.1
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,funding_perceptions,0.4
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,inst_trust_mean,0.2
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,newsletter_signup,0.01
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_general,0.3
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_role_mean,0.4
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,policy_specific_mean,0.3
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_multidimensional,0.3
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1,trust_post,0.3
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,behavior_mean,0.5
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,belief_post,0.3
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,concern_mean,0.4
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,distrust_post,-1.5
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,donation_ams,0.1
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,funding_perceptions,0.8
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,inst_trust_mean,0.5
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,newsletter_signup,0.005
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_general,0.6
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_role_mean,1
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_specific_mean,0.7
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_multidimensional,1.2
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_post,1
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,behavior_mean,0.5
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,belief_post,0.3
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,concern_mean,0.4
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,distrust_post,-0.5
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,donation_ams,0.05
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,funding_perceptions,0.5
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,inst_trust_mean,0.2
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,newsletter_signup,0.002
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_general,0.4
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_role_mean,0.6
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_specific_mean,0.3
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_multidimensional,0.3
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_post,0.3
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,behavior_mean,0.5
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,belief_post,0.3
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,concern_mean,0.4
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,distrust_post,-0.5
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,donation_ams,0.05
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,funding_perceptions,0.5
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,inst_trust_mean,0.2
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,newsletter_signup,0.005
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_general,0.3
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_role_mean,1
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_specific_mean,0.2
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_multidimensional,0.8
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_post,0.7
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,behavior_mean,0.5
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,belief_post,0.2
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,concern_mean,0.3
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,distrust_post,-1.5
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,donation_ams,0.05
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,funding_perceptions,1
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,inst_trust_mean,0.2
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,newsletter_signup,0.002
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_general,0.4
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_role_mean,0.8
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_specific_mean,0.3
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_multidimensional,0.7
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_post,0.6
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,behavior_mean,0.5
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,belief_post,1
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,concern_mean,0.8
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,distrust_post,-5
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,donation_ams,0.1
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,funding_perceptions,1.5
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,inst_trust_mean,0.5
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,newsletter_signup,0.005
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_general,1
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_role_mean,2
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_specific_mean,1.2
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_multidimensional,2.5
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_post,3
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,behavior_mean,0.5
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,belief_post,0.8
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,concern_mean,0.7
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,distrust_post,-0.5
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,donation_ams,0.1
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,funding_perceptions,0.6
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,inst_trust_mean,0.4
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,newsletter_signup,0.005
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_general,0.5
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_role_mean,1
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_specific_mean,0.4
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_multidimensional,0.8
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_post,0.7
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,behavior_mean,0.5
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,belief_post,1
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,concern_mean,0.8
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,distrust_post,-1.5
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,donation_ams,0.1
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,funding_perceptions,0.7
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,inst_trust_mean,0.3
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,newsletter_signup,0.005
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_general,0.9
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_role_mean,1.2
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_specific_mean,0.8
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_multidimensional,1
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_post,1.1
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,behavior_mean,0.5
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,belief_post,0.3
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,concern_mean,0.4
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,distrust_post,-1.5
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,donation_ams,0.1
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,funding_perceptions,0.8
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,inst_trust_mean,0.6
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,newsletter_signup,0.005
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_general,0.5
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_role_mean,1
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_specific_mean,0.4
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_multidimensional,1.8
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_post,1.5
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,behavior_mean,0.5
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,belief_post,0.8
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,concern_mean,0.7
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,distrust_post,-1.5
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,donation_ams,0.1
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,funding_perceptions,1
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,inst_trust_mean,0.5
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,newsletter_signup,0.005
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_general,0.8
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_role_mean,2
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_specific_mean,0.7
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_multidimensional,1.8
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_post,1.7
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,behavior_mean,0.5
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,belief_post,0.3
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,concern_mean,0.4
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,distrust_post,-0.5
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,donation_ams,0.05
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,funding_perceptions,0.2
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,inst_trust_mean,0.3
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,newsletter_signup,0.005
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_general,0.4
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_role_mean,1
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_specific_mean,0.3
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_multidimensional,1.5
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_post,1.2
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,behavior_mean,0.5
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,belief_post,0.8
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,concern_mean,0.7
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,distrust_post,-1.5
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,donation_ams,0.1
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,funding_perceptions,0.5
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,inst_trust_mean,0.8
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,newsletter_signup,0.005
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_general,0.6
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_role_mean,1.5
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_specific_mean,0.5
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_multidimensional,1.2
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_post,1
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,behavior_mean,0.5
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,belief_post,1
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,concern_mean,0.75
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,distrust_post,-1.5
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,donation_ams,0.1
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,funding_perceptions,0.5
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,inst_trust_mean,0.25
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,newsletter_signup,0.005
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_general,0.75
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_role_mean,1
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_specific_mean,0.75
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_multidimensional,1.5
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_post,1.5
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,behavior_mean,0.5
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,belief_post,0.75
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,concern_mean,0.5
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,distrust_post,-0.5
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,donation_ams,0.05
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,funding_perceptions,0.25
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,inst_trust_mean,0.5
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,newsletter_signup,0.002
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_general,0.5
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_role_mean,1
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_specific_mean,0.5
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_multidimensional,1.5
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_post,1.25
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,behavior_mean,0.5
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,belief_post,1
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,concern_mean,0.5
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,distrust_post,-0.5
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,donation_ams,0.05
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,funding_perceptions,0.5
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,inst_trust_mean,0.2
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,newsletter_signup,0.002
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_general,0.5
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_role_mean,1
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_specific_mean,0.4
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_multidimensional,1
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_post,1
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,behavior_mean,0.5
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,belief_post,0.3
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,concern_mean,0.4
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,distrust_post,-1.5
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,donation_ams,0.05
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,funding_perceptions,0.5
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,inst_trust_mean,0.3
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,newsletter_signup,0.005
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_general,0.4
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_role_mean,1
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_specific_mean,0.3
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_multidimensional,1.2
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_post,1
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,behavior_mean,0.5
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,belief_post,0.75
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,concern_mean,0.6
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,distrust_post,-0.5
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,donation_ams,0.05
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,funding_perceptions,0.4
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,inst_trust_mean,0.3
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,newsletter_signup,0.005
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_general,0.5
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_role_mean,0.4
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,policy_specific_mean,0.45
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_multidimensional,0.5
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,1,trust_post,0.5

@@ -1,0 +1,33 @@
+condition,family,model_id,prompt_id,behavior_mean,belief_post,concern_mean,distrust_post,donation_ams,funding_perceptions,inst_trust_mean,newsletter_signup,policy_general,policy_role_mean,policy_specific_mean,trust_multidimensional,trust_post,n_completions
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,0.5,1.5,1,-1,0.1,0.8,0.5,0.005,1.2,1.5,1,1.8,1.8,1
+Consensus,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,0.5,1,0.75,-1.5,0.1,0.5,0.25,0.005,0.75,1,0.75,1.5,1.5,1
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,0.5,1,0.8,-1.5,0.1,1.2,0.5,0.005,0.7,1.8,0.6,1.2,1,1
+Corporate reliance,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,0.5,0.3,0.4,-1.5,0.1,0.8,0.5,0.005,0.6,1,0.7,1.2,1,1
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,0.5,0.2,0.3,-0.5,0.1,0.4,0.2,0.01,0.3,0.4,0.3,0.3,0.3,1
+Extreme weather predictions,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,0.5,0.75,0.6,-0.5,0.05,0.4,0.3,0.005,0.5,0.4,0.45,0.5,0.5,1
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,0.5,1.5,0.8,-1,0.1,0.7,0.4,0.005,0.6,1.2,0.5,1,1.1,1
+Former skeptics,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,0.5,1,0.8,-1.5,0.1,0.7,0.3,0.005,0.9,1.2,0.8,1,1.1,1
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,0.5,0.75,0.5,-1,0.1,1.5,0.25,0.005,0.5,0.75,0.4,0.75,0.75,1
+Funding,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,0.5,0.2,0.3,-1.5,0.05,1,0.2,0.002,0.4,0.8,0.3,0.7,0.6,1
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,0.5,1,0.8,-1.5,0.1,0.5,1.2,0.005,1,1.5,0.8,2,2.5,1
+High public trust,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,0.5,0.3,0.4,-1.5,0.1,0.8,0.6,0.005,0.5,1,0.4,1.8,1.5,1
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,0.5,0.8,0.7,-1,0.1,0.5,0.6,0.005,0.7,1.5,0.6,1.2,1,1
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,0.5,0.3,0.4,-0.5,0.05,0.5,0.2,0.005,0.3,1,0.2,0.8,0.7,1
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,0.5,1.2,0.8,-1.5,0.1,0.7,0.4,0.005,0.6,1,0.5,1.3,1.4,1
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,0.5,0.3,0.4,-1.5,0.05,0.5,0.3,0.005,0.4,1,0.3,1.2,1,1
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,0.5,1.2,0.8,-0.7,0.1,0.6,0.9,0.005,0.7,1.1,0.5,1,0.9,1
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,0.5,0.8,0.7,-0.5,0.1,0.6,0.4,0.005,0.5,1,0.4,0.8,0.7,1
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,0.5,1.2,0.8,-0.7,0.1,0.9,0.6,0.005,0.7,1.5,0.4,1,1.1,1
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,0.5,0.8,0.7,-1.5,0.1,1,0.5,0.005,0.8,2,0.7,1.8,1.7,1
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,0.5,1.2,0.8,-0.7,0.1,0.6,0.4,0.005,0.7,1,0.6,0.9,1.1,1
+Model accuracy,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,0.5,1,0.5,-0.5,0.05,0.5,0.2,0.002,0.5,1,0.4,1,1,1
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1.5,3,2.5,-4,0.2,1,0.5,0.005,2,2.5,1.8,2.8,3.5,1
+Oil industry misinformation,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,0.5,1,0.8,-5,0.1,1.5,0.5,0.005,1,2,1.2,2.5,3,1
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,0.5,1.2,0.8,-0.5,0.1,0.7,0.3,0.005,0.9,1.5,0.8,1,1.1,1
+Peer-review,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,0.5,0.3,0.4,-0.5,0.05,0.2,0.3,0.005,0.4,1,0.3,1.5,1.2,1
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,0.5,0.8,0.7,-0.5,0.1,0.4,0.6,0.005,0.5,0.7,0.4,1,1.2,1
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,0.5,0.75,0.5,-0.5,0.05,0.25,0.5,0.002,0.5,1,0.5,1.5,1.25,1
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,0.5,0.75,0.5,-1.5,0.1,0.5,0.75,0.005,0.75,1.5,0.75,1.5,1.5,1
+Scientist community helpers,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,0.5,0.8,0.7,-1.5,0.1,0.5,0.8,0.005,0.6,1.5,0.5,1.2,1,1
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v1,1.5,2,2.5,-3,0.2,3.5,1,0.005,3,4,2.5,3,3.5,1
+Social justice,Google,gemini-2.5-flash-lite,tier3_direct_forecast_v2,0.5,0.3,0.4,-0.5,0.05,0.5,0.2,0.002,0.4,0.6,0.3,0.3,0.3,1

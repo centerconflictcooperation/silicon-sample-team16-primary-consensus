@@ -1,0 +1,746 @@
+---
+title: "Silicon Benchmark Forecast Diagnostics"
+subtitle: "Team 16 — internal interpretation report"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+    theme: flatly
+    self_contained: true
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 10,
+  fig.height = 6,
+  fig.align = "center",
+  dpi = 120
+)
+
+suppressPackageStartupMessages({
+  library(nalanda)
+  library(dplyr)
+  library(ggplot2)
+  library(readr)
+  library(scales)
+  library(tidyr)
+})
+
+root_candidates <- unique(c(
+  normalizePath(".", winslash = "/", mustWork = FALSE),
+  normalizePath("..", winslash = "/", mustWork = FALSE)
+))
+is_project_root <- vapply(
+  root_candidates,
+  function(x) {
+    file.exists(file.path(x, "inputs", "tier3_outcomes.csv")) &&
+      file.exists(file.path(
+        x, "outputs", "derived", "nalanda_forecast_aggregation_long.csv"
+      ))
+  },
+  logical(1)
+)
+
+if (!any(is_project_root)) {
+  stop("Could not locate the Silicon Benchmark project root.")
+}
+
+project_root <- root_candidates[which(is_project_root)[1]]
+project_file <- function(...) file.path(project_root, ...)
+
+outcomes <- read_csv(
+  project_file("inputs", "tier3_outcomes.csv"),
+  show_col_types = FALSE
+)
+interventions <- read_csv(
+  project_file("inputs", "tier3_interventions.csv"),
+  show_col_types = FALSE
+)
+models_config <- read_csv(
+  project_file("config", "models.csv"),
+  show_col_types = FALSE
+)
+forecast_stages <- read_csv(
+  project_file(
+    "outputs", "derived", "nalanda_forecast_aggregation_long.csv"
+  ),
+  show_col_types = FALSE
+)
+prompt_level <- forecast_stages |>
+  filter(aggregation_level == "prompt") |>
+  transmute(
+    condition,
+    outcome,
+    forecast_model = model_id,
+    prompt_variant = prompt_id,
+    prompt_ate = estimate
+  )
+model_level <- forecast_stages |>
+  filter(aggregation_level == "model") |>
+  transmute(
+    condition,
+    outcome,
+    forecast_model = model_id,
+    model_ate = estimate
+  )
+candidate <- read_csv(
+  project_file(
+    "outputs", "derived", "team_16_T3_candidate_median_unscaled.csv"
+  ),
+  show_col_types = FALSE
+)
+all_model_candidate <- read_csv(
+  project_file(
+    "outputs", "derived",
+    "team_16_T3_diagnostic_all_models_median_unscaled.csv"
+  ),
+  show_col_types = FALSE
+)
+primary_roster <- read_csv(
+  project_file("outputs", "derived", "primary_model_roster.csv"),
+  show_col_types = FALSE
+)
+
+aggregation_comparison_path <- project_file(
+  "outputs", "derived", "aggregation_method_comparison.csv"
+)
+mean_sensitivity_available <- file.exists(aggregation_comparison_path)
+if (mean_sensitivity_available) {
+  aggregation_comparison <- read_csv(
+    aggregation_comparison_path,
+    show_col_types = FALSE
+  )
+}
+
+prompt_dispersion <- read_csv(
+  project_file(
+    "outputs", "diagnostics", "prompt_disagreement_by_cell.csv"
+  ),
+  show_col_types = FALSE
+) |>
+  transmute(
+    condition,
+    outcome,
+    forecast_model = model_id,
+    n_prompts = n_contributors,
+    prompt_min_fraction = min / scale_width,
+    prompt_max_fraction = max / scale_width,
+    prompt_range_fraction = range_per_scale
+  )
+
+outcome_order <- outcomes$outcome
+condition_order <- sort(unique(interventions$condition))
+model_names <- sort(unique(model_level$forecast_model))
+prompt_names <- sort(unique(prompt_level$prompt_variant))
+n_models <- length(model_names)
+n_prompts <- length(prompt_names)
+n_cells <- nrow(candidate)
+
+represented_models <- models_config |>
+  filter(model_id %in% model_names) |>
+  arrange(family, model_id)
+n_families <- n_distinct(represented_models$family)
+all_family_composition <- represented_models |>
+  group_by(family) |>
+  summarize(
+    n_models = n(),
+    models = paste(model_id, collapse = ", "),
+    .groups = "drop"
+  )
+primary_models <- models_config |>
+  filter(model_id %in% primary_roster$model_id) |>
+  arrange(family, model_id)
+n_primary_families <- n_distinct(primary_models$family)
+primary_family_composition <- primary_models |>
+  group_by(family) |>
+  summarize(
+    n_models = n(),
+    models = paste(model_id, collapse = ", "),
+    .groups = "drop"
+  )
+
+candidate_enriched <- candidate |>
+  left_join(
+    select(outcomes, outcome, native_min, native_max, definition),
+    by = "outcome"
+  ) |>
+  mutate(
+    scale_width = native_max - native_min,
+    ate_fraction = ate / scale_width,
+    outcome = factor(outcome, levels = outcome_order),
+    condition = factor(condition, levels = rev(condition_order))
+  )
+all_model_candidate_enriched <- all_model_candidate |>
+  left_join(
+    select(outcomes, outcome, native_min, native_max, definition),
+    by = "outcome"
+  ) |>
+  mutate(
+    scale_width = native_max - native_min,
+    ate_fraction = ate / scale_width,
+    outcome = factor(outcome, levels = outcome_order),
+    condition = factor(condition, levels = rev(condition_order))
+  )
+candidate_fill_limit <- max(abs(c(
+  candidate_enriched$ate_fraction,
+  all_model_candidate_enriched$ate_fraction
+)), na.rm = TRUE)
+roster_sensitivity <- candidate |>
+  rename(primary_ate = ate) |>
+  inner_join(
+    rename(all_model_candidate, all_models_ate = ate),
+    by = c("condition", "outcome")
+  ) |>
+  left_join(
+    transmute(outcomes, outcome, scale_width = native_max - native_min),
+    by = "outcome"
+  ) |>
+  mutate(
+    absolute_gap_fraction = abs(primary_ate - all_models_ate) / scale_width
+  )
+
+prompt_enriched <- prompt_level |>
+  left_join(
+    select(outcomes, outcome, native_min, native_max),
+    by = "outcome"
+  ) |>
+  mutate(
+    scale_width = native_max - native_min,
+    prompt_ate_fraction = prompt_ate / scale_width
+  )
+
+median_abs_effect <- median(abs(candidate_enriched$ate_fraction))
+max_abs_effect <- max(abs(candidate_enriched$ate_fraction))
+median_prompt_gap <- median(prompt_dispersion$prompt_range_fraction)
+max_prompt_gap <- max(prompt_dispersion$prompt_range_fraction)
+positive_cells <- sum(candidate_enriched$ate > 0)
+negative_cells <- sum(candidate_enriched$ate < 0)
+zero_cells <- sum(candidate_enriched$ate == 0)
+
+kable_simple <- function(x, digits = 3, caption = NULL) {
+  knitr::kable(x, digits = digits, caption = caption)
+}
+```
+
+# Executive summary
+
+This report summarizes **internal forecast behavior**, not predictive accuracy.
+The benchmark outcomes remain unknown, so correlations and agreement can reveal
+stability or shared assumptions but cannot establish that a model is correct.
+
+```{r executive-callout, results='asis'}
+if (n_models == 1L) {
+  cat(
+    "> **Current limitation:** The present files contain one model (`",
+    model_names,
+    "`) and ", n_prompts, " prompt variants. The candidate file is therefore ",
+    "a within-model prompt ensemble, not yet a multi-model consensus.\n\n",
+    sep = ""
+  )
+} else {
+  cat(
+    "> The present files contain **", n_models, " models** and **", n_prompts,
+    " prompt variants**. Model-level values are aggregated before the models ",
+    "receive equal weight.\n\n",
+    sep = ""
+  )
+}
+```
+
+- Coverage: **`r n_cells` of 208 intervention–outcome cells**.
+- Models represented: **`r n_models`**.
+- Fixed prompt variants represented: **`r n_prompts`**.
+- Median absolute candidate effect: **`r percent(median_abs_effect, accuracy = 0.01)` of the outcome scale**.
+- Largest absolute candidate effect: **`r percent(max_abs_effect, accuracy = 0.01)` of the outcome scale**.
+- Directional balance: **`r positive_cells` positive**, **`r negative_cells` negative**, and **`r zero_cells` exactly zero** forecasts.
+- Median prompt-to-prompt range: **`r percent(median_prompt_gap, accuracy = 0.01)` of the outcome scale**; maximum: **`r percent(max_prompt_gap, accuracy = 0.01)`**.
+
+# Run contents and completeness
+
+```{r run-summary}
+run_summary <- tibble::tibble(
+  Item = c(
+    "Models in derived files",
+    "Prompt variants",
+    "Interventions",
+    "Outcomes",
+    "Unique intervention-outcome cells",
+    "Expected intervention-outcome cells",
+    "Missing numeric forecasts"
+  ),
+  Value = c(
+    n_models,
+    n_prompts,
+    n_distinct(candidate$condition),
+    n_distinct(candidate$outcome),
+    n_cells,
+    16L * 13L,
+    sum(is.na(forecast_stages$estimate))
+  )
+)
+kable_simple(run_summary)
+```
+
+```{r model-settings}
+settings_used <- models_config |>
+  filter(model_id %in% model_names) |>
+  select(
+    model_id,
+    model,
+    family,
+    temperature,
+    output_mode,
+    n_completions,
+    roster_status
+  )
+kable_simple(settings_used, caption = "Configured settings for models represented in the report")
+```
+
+# Candidate consensus forecast map
+
+This figure shows the primary provisional consensus from the three preselected
+family representatives. For every intervention and outcome, repeated
+completions are combined within prompts, prompts within models, and finally the
+`r n_primary_families` represented model families receive equal weight. Medians
+are used at every step to reduce the influence of an unusually extreme forecast.
+
+<div class="alert alert-info">
+<strong>What is an average treatment effect (ATE)?</strong><br>
+An ATE is the predicted average outcome in the intervention group minus the
+predicted average in the control group. For example, this study includes an
+actual <code>donation_ams</code> outcome ranging from $0 to $10. An ATE of $1
+would mean that participants receiving the intervention are forecast to donate
+one dollar more, on average, than participants reading a neutral control text.
+On the normalized heatmap that equals 10% of the donation scale. Similarly, a
+5-point ATE on a 0–100 outcome equals 5% of its scale, while an ATE of 0.05 for
+the binary newsletter-signup outcome means a five-percentage-point difference.
+The sign matters: a negative ATE means the intervention group is forecast to
+score lower than the control group, which can be desirable for an outcome such
+as distrust.
+</div>
+
+```{r candidate-composition}
+kable_simple(
+  primary_family_composition,
+  caption = "Preselected models contributing to the primary provisional consensus"
+)
+```
+
+Each tile expresses the consensus ATE as a fraction of that outcome's possible
+range. The map is useful for seeing direction and relative magnitude across the
+complete intervention-by-outcome grid, spotting unexpectedly extreme cells,
+and checking whether substantive patterns are coherent. It does not show
+predictive accuracy because the human benchmark results remain hidden.
+
+```{r candidate-heatmap, fig.height=8}
+ggplot(candidate_enriched, aes(x = outcome, y = condition, fill = ate_fraction)) +
+  geom_tile(color = "white", linewidth = 0.2) +
+  scale_fill_gradient2(
+    low = "#2166AC",
+    mid = "white",
+    high = "#B2182B",
+    midpoint = 0,
+    limits = c(-candidate_fill_limit, candidate_fill_limit),
+    labels = label_percent(accuracy = 0.1),
+    name = "ATE as %\nof scale"
+  ) +
+  labs(
+    x = NULL,
+    y = NULL,
+    title = "Primary consensus: three preselected family representatives"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid = element_blank()
+  )
+```
+
+## All-model diagnostic sensitivity map
+
+This second map repeats the same hierarchical median rule using all `r n_models`
+models with complete full-run results. Models are still combined within their
+developer families before the `r n_families` families receive equal weight, so
+a family does not gain extra final weight merely because more variants were
+tested. This map is diagnostic only: it asks whether broadening the model roster
+materially changes the pattern of forecasts. Both maps use the same color scale,
+so their colors can be compared directly.
+
+```{r all-model-composition}
+kable_simple(
+  all_family_composition,
+  caption = "All completed models contributing to the diagnostic sensitivity map"
+)
+```
+
+```{r all-model-heatmap, fig.height=8}
+ggplot(
+  all_model_candidate_enriched,
+  aes(x = outcome, y = condition, fill = ate_fraction)
+) +
+  geom_tile(color = "white", linewidth = 0.2) +
+  scale_fill_gradient2(
+    low = "#2166AC",
+    mid = "white",
+    high = "#B2182B",
+    midpoint = 0,
+    limits = c(-candidate_fill_limit, candidate_fill_limit),
+    labels = label_percent(accuracy = 0.1),
+    name = "ATE as %\nof scale"
+  ) +
+  labs(
+    x = NULL,
+    y = NULL,
+    title = "Diagnostic sensitivity: all completed models"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid = element_blank()
+  )
+```
+
+Across the 208 cells, the median absolute difference between the primary and
+all-model consensuses is
+**`r percent(median(roster_sensitivity$absolute_gap_fraction), accuracy = 0.01)`
+of the outcome scale**; the largest difference is
+**`r percent(max(roster_sensitivity$absolute_gap_fraction), accuracy = 0.01)`**.
+
+## Largest positive and negative forecasts
+
+These are useful for checking face validity and scale interpretation. They are
+not evidence that the corresponding interventions will produce the largest
+human effects.
+
+```{r extreme-tables}
+extremes <- candidate_enriched |>
+  mutate(
+    direction = if_else(ate_fraction >= 0, "Positive", "Negative"),
+    scale_percent = 100 * ate_fraction
+  ) |>
+  group_by(direction) |>
+  slice_max(abs(ate_fraction), n = 8, with_ties = FALSE) |>
+  ungroup() |>
+  arrange(direction, desc(abs(ate_fraction))) |>
+  select(direction, condition, outcome, ate, scale_percent)
+
+kable_simple(
+  extremes,
+  digits = 2,
+  caption = "Largest absolute candidate effects after normalizing by outcome range"
+)
+```
+
+# Outcome-level calibration
+
+This figure asks whether the forecasting ensemble systematically assigns larger
+effects to some outcomes than others after accounting for their different native
+scales. Outcomes are sorted by the median absolute consensus effect, with the
+largest typical effects at the top.
+
+```{r outcome-calibration}
+outcome_summary <- candidate_enriched |>
+  group_by(outcome) |>
+  summarize(
+    median_ate = median(ate),
+    median_absolute_scale_percent = 100 * median(abs(ate_fraction)),
+    maximum_absolute_scale_percent = 100 * max(abs(ate_fraction)),
+    .groups = "drop"
+  ) |>
+  mutate(outcome = reorder(outcome, median_absolute_scale_percent))
+
+ggplot(
+  outcome_summary,
+  aes(x = outcome, y = median_absolute_scale_percent)
+) +
+  geom_col(fill = "#3C78A8") +
+  coord_flip() +
+  labs(
+    x = NULL,
+    y = "Median absolute ATE (% of outcome range)",
+    title = "Typical forecast magnitude by outcome"
+  ) +
+  theme_minimal(base_size = 11)
+```
+
+# Primary median versus Nalanda mean sensitivity
+
+The locked candidate uses Nalanda's native median at each level for robustness.
+The sensitivity analysis reruns the same equal-weight hierarchy with arithmetic
+means across completions, prompts, models, and families. The comparison below
+shows whether that reducer choice materially changes the forecasts.
+
+```{r aggregation-sensitivity, results='asis'}
+if (mean_sensitivity_available) {
+  median_method_gap <- median(
+    aggregation_comparison$normalized_absolute_difference
+  )
+  max_method_gap <- max(
+    aggregation_comparison$normalized_absolute_difference
+  )
+
+  cat(
+    "- Median absolute method difference: **",
+    percent(median_method_gap, accuracy = 0.01),
+    " of the outcome scale**.\n",
+    "- Maximum absolute method difference: **",
+    percent(max_method_gap, accuracy = 0.01),
+    " of the outcome scale**.\n\n",
+    sep = ""
+  )
+
+  method_sensitive <- aggregation_comparison |>
+    arrange(desc(normalized_absolute_difference)) |>
+    slice_head(n = 12) |>
+    mutate(
+      mean_minus_median_scale_percent = 100 * normalized_difference
+    ) |>
+    select(
+      condition,
+      outcome,
+      median_hierarchy_ate,
+      mean_hierarchy_ate,
+      mean_minus_median_scale_percent
+    )
+
+  print(kable_simple(
+    method_sensitive,
+    digits = 3,
+    caption = "Cells most affected by median versus arithmetic-mean aggregation"
+  ))
+} else {
+  cat(
+    "> The Nalanda aggregation-comparison file is not available. Source ",
+    "`scripts/03_build_submission.R` and regenerate this report.\n"
+  )
+}
+```
+
+# Prompt robustness
+
+Prompt agreement tests whether fixed wording variants elicit similar forecasts
+from the same model. Strong agreement is desirable for stability, but two
+prompts can agree and still share the same bias.
+
+```{r prompt-scatter, results='asis'}
+if (n_prompts == 2L) {
+  prompt_wide <- prompt_enriched |>
+    select(
+      condition, outcome, forecast_model, prompt_variant,
+      prompt_ate_fraction
+    ) |>
+    pivot_wider(
+      names_from = prompt_variant,
+      values_from = prompt_ate_fraction
+    )
+
+  p1 <- prompt_names[[1L]]
+  p2 <- prompt_names[[2L]]
+
+  prompt_correlations <- prompt_wide |>
+    group_by(forecast_model) |>
+    summarize(
+      pearson = cor(.data[[p1]], .data[[p2]], method = "pearson"),
+      spearman = cor(.data[[p1]], .data[[p2]], method = "spearman"),
+      .groups = "drop"
+    )
+
+  print(kable_simple(
+    prompt_correlations,
+    digits = 3,
+    caption = "Prompt-variant agreement across the 208 cells"
+  ))
+
+  prompt_limit <- max(abs(c(prompt_wide[[p1]], prompt_wide[[p2]])))
+  prompt_plot <- ggplot(
+    prompt_wide,
+    aes(x = .data[[p1]], y = .data[[p2]])
+  ) +
+    geom_abline(slope = 1, intercept = 0, color = "grey55") +
+    geom_point(alpha = 0.65, color = "#2B6F8A") +
+    facet_wrap(~forecast_model) +
+    coord_equal(xlim = c(-prompt_limit, prompt_limit),
+                ylim = c(-prompt_limit, prompt_limit)) +
+    scale_x_continuous(labels = label_percent(accuracy = 0.1)) +
+    scale_y_continuous(labels = label_percent(accuracy = 0.1)) +
+    labs(
+      x = paste(p1, "ATE as % of scale"),
+      y = paste(p2, "ATE as % of scale")
+    ) +
+    theme_minimal(base_size = 11)
+  print(prompt_plot)
+} else {
+  cat("> Prompt-pair scatterplots require exactly two prompt variants.\n")
+}
+```
+
+## Cells most sensitive to prompt wording
+
+All models with complete full-run results are included below. A model can look
+absent for a particular outcome when its median prompt gap is exactly zero:
+a zero-height bar is invisible. The statistic is the median, across
+interventions, of the absolute gap between the two fixed prompt variants for
+each outcome and model. It measures prompt sensitivity, not forecast magnitude
+or accuracy.
+
+```{r prompt-sensitive-cells}
+prompt_sensitive <- prompt_dispersion |>
+  arrange(desc(prompt_range_fraction)) |>
+  slice_head(n = 15) |>
+  mutate(prompt_range_percent = 100 * prompt_range_fraction) |>
+  select(
+    forecast_model,
+    condition,
+    outcome,
+    n_prompts,
+    prompt_range_percent
+  )
+
+kable_simple(
+  prompt_sensitive,
+  digits = 2,
+  caption = "Largest within-model prompt ranges"
+)
+```
+
+```{r prompt-gap-plot}
+prompt_by_outcome <- prompt_dispersion |>
+  group_by(forecast_model, outcome) |>
+  summarize(
+    median_prompt_range_percent = 100 * median(prompt_range_fraction),
+    .groups = "drop"
+  ) |>
+  mutate(outcome = factor(outcome, levels = outcome_order))
+
+ggplot(
+  prompt_by_outcome,
+  aes(x = outcome, y = median_prompt_range_percent, fill = forecast_model)
+) +
+  geom_col(
+    # coord_flip() otherwise makes the within-outcome bar order appear in the
+    # opposite direction from the top-to-bottom legend order.
+    position = position_dodge(width = 0.85, reverse = TRUE),
+    width = 0.78,
+    color = "white",
+    linewidth = 0.15
+  ) +
+  coord_flip() +
+  labs(
+    x = NULL,
+    y = "Median prompt range (% of outcome scale)",
+    fill = "Model",
+    title = "Prompt sensitivity by outcome"
+  ) +
+  theme_minimal(base_size = 11)
+```
+
+```{r prompt-gap-interpretation, results='asis'}
+most_prompt_sensitive <- prompt_by_outcome |>
+  slice_max(median_prompt_range_percent, n = 1, with_ties = FALSE)
+
+cat(
+  '<div class="alert alert-warning"><strong>Largest current prompt signal:</strong> ',
+  most_prompt_sensitive$forecast_model,
+  " has the largest model–outcome median prompt gap: ",
+  sprintf("%.1f%%", most_prompt_sensitive$median_prompt_range_percent),
+  " of the outcome scale for <code>",
+  as.character(most_prompt_sensitive$outcome),
+  "</code>. This is a stability warning: the two fixed prompt formulations ",
+  "produce materially different forecasts for that model. It does not, by ",
+  "itself, reveal which forecast or model is more accurate.</div>\n",
+  sep = ""
+)
+```
+
+# Model agreement
+
+```{r model-agreement, results='asis'}
+if (n_models < 2L) {
+  cat(
+    "> Model-agreement statistics are intentionally withheld because only ",
+    "one model is present. A 1 &times; 1 correlation of 1 is an identity, not ",
+    "evidence of model consensus. This section will populate automatically ",
+    "after additional models are run.\n"
+  )
+} else {
+  pairwise_correlations <- read_csv(
+    project_file(
+      "outputs", "diagnostics", "model_correlations_pairwise.csv"
+    ),
+    show_col_types = FALSE
+  )
+  overall_agreement <- read_csv(
+    project_file(
+      "outputs", "diagnostics", "model_agreement_overall.csv"
+    ),
+    show_col_types = FALSE
+  )
+  model_disagreement <- read_csv(
+    project_file(
+      "outputs", "diagnostics", "model_disagreement_by_cell.csv"
+    ),
+    show_col_types = FALSE
+  )
+
+  print(kable_simple(
+    overall_agreement,
+    digits = 3,
+    caption = "Overall scale-normalized model agreement"
+  ))
+  print(plot_model_agreement(
+    pairwise_correlations,
+    type = "heatmap",
+    method = "spearman"
+  ))
+
+  model_spread <- model_disagreement |>
+    arrange(desc(range_per_scale)) |>
+    slice_head(n = 15) |>
+    mutate(model_range_percent = 100 * range_per_scale) |>
+    select(condition, outcome, model_range_percent)
+
+  print(kable_simple(
+    model_spread,
+    digits = 2,
+    caption = "Cells with the largest cross-model range"
+  ))
+}
+```
+
+# Interpretation checklist
+
+Use this report to discuss the following questions with collaborators:
+
+1. Do the largest positive and negative forecasts make substantive sense given
+   the interventions and outcome directions?
+2. Are any outcomes consistently assigned much larger effects than others
+   after accounting for their native scales?
+3. Which cells are sensitive to prompt wording, and are those disagreements
+   large enough to justify another fixed prompt variant?
+4. Once several models are present, do disagreements reflect magnitude,
+   direction, or both?
+5. Are any routing failures, missing cells, or manual repairs present? If yes,
+   do not lock a submission until they are resolved and documented.
+
+## What this report cannot establish
+
+- It cannot identify the most accurate model without human benchmark outcomes.
+- High prompt or model agreement does not imply calibration.
+- Low agreement does not identify which forecast is correct.
+- The report must not be used to remove a predeclared model merely because it
+  disagrees with the others.
+
+# Reproducibility information
+
+```{r session-info}
+cat("Generated from project root:", project_root, "\n\n")
+cat("R version:", R.version.string, "\n")
+cat("nalanda version:", as.character(utils::packageVersion("nalanda")), "\n")
+cat("rmarkdown version:", as.character(utils::packageVersion("rmarkdown")), "\n")
+```

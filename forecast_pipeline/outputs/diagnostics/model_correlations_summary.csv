@@ -1,0 +1,5 @@
+method,mean_correlation,median_correlation,min_correlation,max_correlation,n_pairs,most_aligned_model,most_aligned_correlation,label
+pearson,0.81128227903617,0.8223868976808475,0.6826625024024907,0.9215384345320626,28,claude-opus-4-6,0.8612348324058963,"Mean pairwise r = 0.81
+Most aligned: claude-opus-4-6 (mean r = 0.86)"
+spearman,0.6053610496241548,0.6433958999689425,0.3577431889161885,0.8313051601317609,28,claude-opus-4-6,0.6776351760580681,"Mean pairwise r = 0.61
+Most aligned: claude-opus-4-6 (mean r = 0.68)"

@@ -1,0 +1,17 @@
+condition,family,model_id,behavior_mean,belief_post,concern_mean,distrust_post,donation_ams,funding_perceptions,inst_trust_mean,newsletter_signup,policy_general,policy_role_mean,policy_specific_mean,trust_multidimensional,trust_post,n_prompts
+Consensus,Google,gemini-2.5-flash-lite,0.5,1.25,0.875,-1.25,0.1,0.65,0.375,0.005,0.975,1.25,0.875,1.65,1.65,2
+Corporate reliance,Google,gemini-2.5-flash-lite,0.5,0.65,0.6000000000000001,-1.5,0.1,1,0.5,0.005,0.6499999999999999,1.4,0.6499999999999999,1.2,1,2
+Extreme weather predictions,Google,gemini-2.5-flash-lite,0.5,0.475,0.44999999999999996,-0.5,0.07500000000000001,0.4,0.25,0.0075,0.4,0.4,0.375,0.4,0.4,2
+Former skeptics,Google,gemini-2.5-flash-lite,0.5,1.25,0.8,-1.25,0.1,0.7,0.35,0.005,0.75,1.2,0.65,1,1.1,2
+Funding,Google,gemini-2.5-flash-lite,0.5,0.475,0.4,-1.25,0.07500000000000001,1.25,0.225,0.0035,0.45,0.775,0.35,0.725,0.675,2
+High public trust,Google,gemini-2.5-flash-lite,0.5,0.65,0.6000000000000001,-1.5,0.1,0.65,0.8999999999999999,0.005,0.75,1.25,0.6000000000000001,1.9,2,2
+Interview Prof. Maraun,Google,gemini-2.5-flash-lite,0.5,0.55,0.55,-0.75,0.07500000000000001,0.5,0.4,0.005,0.5,1.25,0.4,1,0.85,2
+Interview Prof. Sebille,Google,gemini-2.5-flash-lite,0.5,0.75,0.6000000000000001,-1.5,0.07500000000000001,0.6,0.35,0.005,0.5,1,0.4,1.25,1.2,2
+Measurement & modeling (1),Google,gemini-2.5-flash-lite,0.5,1,0.75,-0.6,0.1,0.6,0.65,0.005,0.6,1.05,0.45,0.9,0.8,2
+Measurement & modeling (2),Google,gemini-2.5-flash-lite,0.5,1,0.75,-1.1,0.1,0.95,0.55,0.005,0.75,1.75,0.55,1.4,1.4,2
+Model accuracy,Google,gemini-2.5-flash-lite,0.5,1.1,0.65,-0.6,0.07500000000000001,0.55,0.30000000000000004,0.0035,0.6,1,0.5,0.95,1.05,2
+Oil industry misinformation,Google,gemini-2.5-flash-lite,1,2,1.65,-4.5,0.15000000000000002,1.25,0.5,0.005,1.5,2.25,1.5,2.65,3.25,2
+Peer-review,Google,gemini-2.5-flash-lite,0.5,0.75,0.6000000000000001,-0.5,0.07500000000000001,0.44999999999999996,0.3,0.005,0.65,1.25,0.55,1.25,1.15,2
+Portrait Prof. Cherry,Google,gemini-2.5-flash-lite,0.5,0.775,0.6,-0.5,0.07500000000000001,0.325,0.55,0.0035,0.5,0.85,0.45,1.25,1.225,2
+Scientist community helpers,Google,gemini-2.5-flash-lite,0.5,0.775,0.6,-1.5,0.1,0.5,0.775,0.005,0.675,1.5,0.625,1.35,1.25,2
+Social justice,Google,gemini-2.5-flash-lite,1,1.15,1.45,-1.75,0.125,2,0.6,0.0035,1.7,2.3,1.4,1.65,1.9,2

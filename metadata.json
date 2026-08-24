@@ -1,31 +1,38 @@
 {
-  "team_id": "example",
-  "team_name": "Example Team (replace me)",
-  "contact": "name@institution.edu",
+  "team_id": "team_16",
+  "team_name": "Nalanda Model Consensus",
+  "contact": "remi.theriault@nyu.edu",
   "creators": [
     {
-      "name": "Lastname, Firstname",
-      "affiliation": "Your institution",
-      "orcid": ""
+      "name": "Thériault, Rémi",
+      "affiliation": "Université du Québec à Rimouski; New York University",
+      "orcid": "0000-0003-4315-6788"
+    },
+    {
+      "name": "Van Bavel, Jay",
+      "affiliation": "New York University",
+      "orcid": "0000-0002-2520-0442"
     }
   ],
-  "abstract": "",
+  "abstract": "A Tier-3 direct-effect forecast for the Silicon Sample Benchmark. Two fixed prompts elicited all 13 average treatment effects for each of 16 interventions from one preselected model in each of three developer families: Anthropic Claude Opus 4.6, Google Gemini 3.1 Pro Preview, and OpenAI GPT-5-mini. Completion-level forecasts were aggregated by medians within prompts, prompts within models, models within families, and families into an equal-family-weight consensus. The entry contains 208 predictions in original outcome units and applies no post-hoc calibration or shrinkage.",
   "license": "CC-BY-4.0",
-  "tier": 1,
+  "tier": 3,
   "entry": "primary",
-  "approach_family": "per-respondent simulation, single model",
+  "approach_family": "direct effect forecasting, three-family LLM ensemble, zero-shot structured prompting, hierarchical median consensus",
   "models": [
-    "gpt-4o-mini-2024-07-18"
+    "anthropic.claude-opus-4-6 via Vertex AI and the NYU AI Gateway",
+    "gemini-3.1-pro-preview via Vertex AI and the NYU AI Gateway",
+    "gpt-5-mini via Azure OpenAI and the NYU AI Gateway"
   ],
-  "code_repository": "https://github.com/your-team/your-repo",
+  "code_repository": "https://github.com/centerconflictcooperation/silicon-sample-team16-primary-consensus",
   "code_doi": null,
   "disclosure_class": "A",
   "escrow_doi": null,
   "zenodo_doi": null,
   "prediction_files": [
     {
-      "file": "predictions/example_T1_primary_v1.csv",
-      "sha256": "0f24e117fcf6803743a12ab43f42bf8b0a7893fb9a706e5303cae3eadb79cc59"
+      "file": "predictions/team_16_T3_primary_v1.csv",
+      "sha256": "7715a332d1bc925868c04b918f922309431a4ce31f12b9e8db2279e9cfbb5709"
     }
   ],
   "coverage": {

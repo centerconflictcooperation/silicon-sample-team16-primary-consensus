@@ -1,0 +1,512 @@
+---
+title: "Silicon Sample Benchmark Tier-3 Forecast"
+subtitle: "Team 16 — primary three-model consensus"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+    theme: flatly
+    self_contained: true
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 10,
+  fig.height = 7,
+  fig.align = "center",
+  dpi = 120
+)
+
+suppressPackageStartupMessages({
+  library(nalanda)
+  library(dplyr)
+  library(ggplot2)
+  library(readr)
+  library(scales)
+  library(tidyr)
+})
+
+root_candidates <- unique(c(
+  normalizePath(".", winslash = "/", mustWork = FALSE),
+  normalizePath("..", winslash = "/", mustWork = FALSE)
+))
+is_project_root <- vapply(
+  root_candidates,
+  function(x) {
+    file.exists(file.path(x, "inputs", "tier3_outcomes.csv")) &&
+      file.exists(file.path(
+        x, "outputs", "derived", "team_16_T3_candidate_median_unscaled.csv"
+      ))
+  },
+  logical(1)
+)
+if (!any(is_project_root)) {
+  stop("Could not locate the Silicon Benchmark project root.")
+}
+
+project_root <- root_candidates[which(is_project_root)[1]]
+project_file <- function(...) file.path(project_root, ...)
+
+candidate <- read_csv(
+  project_file(
+    "outputs", "derived", "team_16_T3_candidate_median_unscaled.csv"
+  ),
+  show_col_types = FALSE
+)
+outcomes <- read_csv(
+  project_file("inputs", "tier3_outcomes.csv"),
+  show_col_types = FALSE
+)
+interventions <- read_csv(
+  project_file("inputs", "tier3_interventions.csv"),
+  show_col_types = FALSE
+)
+models_config <- read_csv(
+  project_file("config", "models.csv"),
+  show_col_types = FALSE
+)
+primary_roster <- read_csv(
+  project_file("outputs", "derived", "primary_model_roster.csv"),
+  show_col_types = FALSE
+)
+forecast_stages <- read_csv(
+  project_file(
+    "outputs", "derived", "nalanda_forecast_aggregation_long.csv"
+  ),
+  show_col_types = FALSE
+)
+all_pairwise_correlations <- read_csv(
+  project_file("outputs", "diagnostics", "model_correlations_pairwise.csv"),
+  show_col_types = FALSE
+)
+primary_prompt_level <- forecast_stages |>
+  filter(
+    aggregation_level == "prompt",
+    model_id %in% primary_roster$model_id
+  ) |>
+  transmute(
+    condition,
+    outcome,
+    forecast_model = model_id,
+    prompt_variant = prompt_id,
+    prompt_ate = estimate
+  )
+primary_model_level <- forecast_stages |>
+  filter(
+    aggregation_level == "model",
+    model_id %in% primary_roster$model_id
+  ) |>
+  transmute(
+    condition,
+    outcome,
+    forecast_model = model_id,
+    model_ate = estimate
+  )
+primary_prompt_dispersion <- read_csv(
+  project_file(
+    "outputs", "diagnostics", "prompt_disagreement_by_cell.csv"
+  ),
+  show_col_types = FALSE
+) |>
+  filter(model_id %in% primary_roster$model_id) |>
+  transmute(
+    condition,
+    outcome,
+    forecast_model = model_id,
+    n_prompts = n_contributors,
+    prompt_range_fraction = range_per_scale
+  )
+
+primary_models <- models_config |>
+  filter(model_id %in% primary_roster$model_id) |>
+  arrange(family, model_id) |>
+  select(model_id, family, temperature, n_completions, output_mode)
+
+model_labels <- c(
+  "claude-opus-4-6" = "Claude Opus 4.6",
+  "gemini-3.1-pro-preview" = "Gemini 3.1 Pro Preview",
+  "gpt-5-mini" = "GPT-5 mini"
+)
+primary_correlations <- all_pairwise_correlations |>
+  filter(
+    model_a %in% primary_roster$model_id,
+    model_b %in% primary_roster$model_id
+  ) |>
+  mutate(
+    model_pair = paste(
+      unname(model_labels[model_a]),
+      unname(model_labels[model_b]),
+      sep = " vs. "
+    ),
+    statistic = recode(method, pearson = "Pearson", spearman = "Spearman")
+  ) |>
+  select(model_pair, statistic, correlation, n_units)
+
+primary_prompt_enriched <- primary_prompt_level |>
+  left_join(
+    transmute(outcomes, outcome, scale_width = native_max - native_min),
+    by = "outcome"
+  ) |>
+  mutate(prompt_ate_fraction = prompt_ate / scale_width)
+
+primary_model_disagreement <- primary_model_level |>
+  left_join(
+    transmute(outcomes, outcome, scale_width = native_max - native_min),
+    by = "outcome"
+  ) |>
+  group_by(condition, outcome) |>
+  summarize(
+    model_range_percent = 100 * (max(model_ate) - min(model_ate)) /
+      first(scale_width),
+    .groups = "drop"
+  )
+
+prompt_names <- sort(unique(primary_prompt_level$prompt_variant))
+
+outcome_order <- outcomes$outcome
+condition_order <- sort(unique(interventions$condition))
+candidate_enriched <- candidate |>
+  left_join(
+    select(outcomes, outcome, native_min, native_max, definition),
+    by = "outcome"
+  ) |>
+  mutate(
+    scale_width = native_max - native_min,
+    ate_fraction = ate / scale_width,
+    outcome = factor(outcome, levels = outcome_order),
+    condition = factor(condition, levels = rev(condition_order))
+  )
+fill_limit <- max(abs(candidate_enriched$ate_fraction), na.rm = TRUE)
+
+stopifnot(
+  nrow(candidate) == 208L,
+  n_distinct(candidate$condition) == 16L,
+  n_distinct(candidate$outcome) == 13L,
+  !anyNA(candidate$ate),
+  nrow(primary_models) == 3L,
+  n_distinct(primary_models$family) == 3L,
+  nrow(primary_correlations) == 6L,
+  length(prompt_names) == 2L
+)
+```
+
+# Submission summary
+
+This Tier-3 entry predicts the average treatment effect (ATE) of each of 16
+interventions on each of 13 outcomes, for a complete set of **208 point
+forecasts**. It uses one preselected language model from each of three developer
+families and gives the families equal weight.
+
+- Entry: **team_16 primary Tier 3**
+- Forecasting approach: **direct structured LLM forecasts**
+- Primary ensemble: **three developer families, equally weighted**
+- Aggregation: **median within prompts, models, and families**
+- Post-hoc adjustment: **none in the primary candidate**
+- Coverage: **16 interventions × 13 outcomes; no missing values**
+
+# Primary model specification
+
+```{r model-specification}
+knitr::kable(
+  primary_models,
+  caption = "Preselected contributors to the primary consensus"
+)
+```
+
+Each model received two fixed direct-forecast prompt formulations for every
+intervention. GPT-5-mini used five completions per formulation because its
+gateway temperature is fixed at 1; the other two models used one completion per
+formulation. Completions were first combined within each prompt, then prompts
+within each model. Because there is one selected model per family, the final
+family-balanced consensus gives Anthropic, Google, and OpenAI equal weight.
+
+# Understanding the forecasts
+
+<div class="alert alert-info">
+<strong>Average treatment effect (ATE)</strong><br>
+An ATE is the forecast average outcome in an intervention group minus the
+forecast average in the neutral control group. A positive ATE means the
+intervention group is expected to score higher; a negative ATE means it is
+expected to score lower. The heatmap divides every ATE by that outcome's full
+scale width so outcomes measured in dollars, proportions, and 0–100 ratings can
+be displayed together. For example, a $1 donation ATE is 10% of the $0–$10
+donation scale, while a five-point ATE on a 0–100 rating is 5% of its scale.
+</div>
+
+```{r primary-heatmap, fig.height=8}
+ggplot(candidate_enriched, aes(x = outcome, y = condition, fill = ate_fraction)) +
+  geom_tile(color = "white", linewidth = 0.2) +
+  scale_fill_gradient2(
+    low = "#2166AC",
+    mid = "white",
+    high = "#B2182B",
+    midpoint = 0,
+    limits = c(-fill_limit, fill_limit),
+    labels = label_percent(accuracy = 0.1),
+    name = "ATE as %\nof scale"
+  ) +
+  labs(
+    x = NULL,
+    y = NULL,
+    title = "Primary three-family consensus forecasts"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    panel.grid = element_blank()
+  )
+```
+
+The pale or saturated color of a tile reflects the magnitude of its forecast
+relative to that outcome's possible range. It does not represent uncertainty or
+accuracy; human benchmark outcomes were unavailable when these predictions were
+generated and locked.
+
+# Forecast magnitude by outcome
+
+```{r outcome-calibration}
+outcome_summary <- candidate_enriched |>
+  group_by(outcome) |>
+  summarize(
+    median_absolute_scale_percent = 100 * median(abs(ate_fraction)),
+    maximum_absolute_scale_percent = 100 * max(abs(ate_fraction)),
+    .groups = "drop"
+  ) |>
+  mutate(outcome = reorder(outcome, median_absolute_scale_percent))
+
+ggplot(
+  outcome_summary,
+  aes(x = outcome, y = median_absolute_scale_percent)
+) +
+  geom_col(fill = "#3C78A8") +
+  coord_flip() +
+  labs(
+    x = NULL,
+    y = "Median absolute ATE (% of outcome range)",
+    title = "Typical primary-forecast magnitude by outcome"
+  ) +
+  theme_minimal(base_size = 11)
+```
+
+# Prompt robustness
+
+Prompt agreement tests whether the two fixed wording variants elicit similar
+forecasts from the same primary model. Strong agreement is desirable for
+stability, but two prompts can agree and still share the same bias.
+
+```{r primary-prompt-scatter}
+primary_prompt_wide <- primary_prompt_enriched |>
+  select(
+    condition, outcome, forecast_model, prompt_variant,
+    prompt_ate_fraction
+  ) |>
+  pivot_wider(
+    names_from = prompt_variant,
+    values_from = prompt_ate_fraction
+  )
+
+p1 <- prompt_names[[1L]]
+p2 <- prompt_names[[2L]]
+
+primary_prompt_correlations <- primary_prompt_wide |>
+  group_by(forecast_model) |>
+  summarize(
+    Pearson = cor(.data[[p1]], .data[[p2]], method = "pearson"),
+    Spearman = cor(.data[[p1]], .data[[p2]], method = "spearman"),
+    .groups = "drop"
+  ) |>
+  mutate(
+    Model = unname(model_labels[forecast_model]),
+    .before = 1
+  ) |>
+  select(Model, Pearson, Spearman)
+
+knitr::kable(
+  primary_prompt_correlations,
+  format = "html",
+  digits = 3,
+  caption = "Prompt-variant agreement across the 208 cells"
+)
+
+prompt_limit <- max(abs(c(
+  primary_prompt_wide[[p1]], primary_prompt_wide[[p2]]
+)))
+
+ggplot(
+  primary_prompt_wide |>
+    mutate(Model = unname(model_labels[forecast_model])),
+  aes(x = .data[[p1]], y = .data[[p2]])
+) +
+  geom_abline(slope = 1, intercept = 0, color = "grey55") +
+  geom_point(alpha = 0.65, color = "#2B6F8A") +
+  facet_wrap(~Model) +
+  coord_equal(
+    xlim = c(-prompt_limit, prompt_limit),
+    ylim = c(-prompt_limit, prompt_limit)
+  ) +
+  scale_x_continuous(labels = label_percent(accuracy = 0.1)) +
+  scale_y_continuous(labels = label_percent(accuracy = 0.1)) +
+  labs(
+    x = paste(p1, "ATE as % of scale"),
+    y = paste(p2, "ATE as % of scale")
+  ) +
+  theme_minimal(base_size = 11)
+```
+
+## Cells most sensitive to prompt wording
+
+The table identifies individual primary-model cells with the largest absolute
+gap between the two prompt variants. The figure then summarizes, for each
+outcome and model, the median gap across interventions. These are stability
+diagnostics, not measures of forecast magnitude or accuracy.
+
+```{r primary-prompt-sensitive-cells}
+primary_prompt_sensitive <- primary_prompt_dispersion |>
+  arrange(desc(prompt_range_fraction)) |>
+  slice_head(n = 15) |>
+  mutate(
+    Model = unname(model_labels[forecast_model]),
+    `Prompt range (% of scale)` = 100 * prompt_range_fraction
+  ) |>
+  select(
+    Model,
+    Intervention = condition,
+    Outcome = outcome,
+    `Prompt range (% of scale)`
+  )
+
+knitr::kable(
+  primary_prompt_sensitive,
+  format = "html",
+  digits = 2,
+  caption = "Largest within-model prompt ranges among primary models"
+)
+```
+
+```{r primary-prompt-gap-plot}
+primary_prompt_by_outcome <- primary_prompt_dispersion |>
+  group_by(forecast_model, outcome) |>
+  summarize(
+    median_prompt_range_percent = 100 * median(prompt_range_fraction),
+    .groups = "drop"
+  ) |>
+  mutate(
+    Model = unname(model_labels[forecast_model]),
+    outcome = factor(outcome, levels = outcome_order)
+  )
+
+ggplot(
+  primary_prompt_by_outcome,
+  aes(x = outcome, y = median_prompt_range_percent, fill = Model)
+) +
+  geom_col(
+    position = position_dodge(width = 0.85, reverse = TRUE),
+    width = 0.78,
+    color = "white",
+    linewidth = 0.15
+  ) +
+  coord_flip() +
+  labs(
+    x = NULL,
+    y = "Median prompt range (% of outcome scale)",
+    fill = "Model",
+    title = "Prompt sensitivity by outcome among primary models"
+  ) +
+  theme_minimal(base_size = 11)
+```
+
+# Agreement among the primary models
+
+<div class="alert alert-info">
+<strong>What model agreement measures</strong><br>
+Agreement asks whether the three primary models assign similar relative effect
+patterns across the same 208 intervention–outcome cells. Pearson correlation
+emphasizes similarity in forecast magnitudes, while Spearman correlation
+emphasizes similarity in rank ordering. High agreement supports the claim that
+the consensus is not driven by a single provider family, but it is not evidence
+that the forecasts are accurate; accuracy can be assessed only after comparison
+with the locked human benchmark results.
+</div>
+
+```{r primary-model-agreement}
+agreement_table <- primary_correlations |>
+  mutate(correlation = round(correlation, 3)) |>
+  tidyr::pivot_wider(
+    names_from = statistic,
+    values_from = correlation
+  ) |>
+  arrange(model_pair) |>
+  select(
+    `Model pair` = model_pair,
+    Pearson,
+    Spearman,
+    `Forecast cells` = n_units
+  )
+
+knitr::kable(
+  agreement_table,
+  format = "html",
+  escape = TRUE,
+  caption = "Pairwise agreement among the three primary model forecasts"
+)
+
+plot_model_agreement(
+  all_pairwise_correlations |>
+    filter(
+      model_a %in% primary_roster$model_id,
+      model_b %in% primary_roster$model_id
+    ),
+  type = "heatmap",
+  method = "spearman"
+)
+```
+
+Across the three model pairs, Pearson correlations range from
+`r sprintf("%.3f", min(primary_correlations$correlation[primary_correlations$statistic == "Pearson"]))`
+to
+`r sprintf("%.3f", max(primary_correlations$correlation[primary_correlations$statistic == "Pearson"]))`,
+and Spearman correlations range from
+`r sprintf("%.3f", min(primary_correlations$correlation[primary_correlations$statistic == "Spearman"]))`
+to
+`r sprintf("%.3f", max(primary_correlations$correlation[primary_correlations$statistic == "Spearman"]))`.
+The full all-model agreement and prompt-sensitivity analyses remain in the
+separate exploratory diagnostics report.
+
+```{r primary-model-sensitive-cells}
+primary_model_spread <- primary_model_disagreement |>
+  arrange(desc(model_range_percent)) |>
+  slice_head(n = 15) |>
+  select(
+    Intervention = condition,
+    Outcome = outcome,
+    `Model range (% of scale)` = model_range_percent
+  )
+
+knitr::kable(
+  primary_model_spread,
+  format = "html",
+  digits = 2,
+  caption = "Cells with the largest range across the three primary models"
+)
+```
+
+# Reproducibility note
+
+The prediction pipeline retains the fixed prompt texts, model routing and
+generation settings, structured completion records with row-level provenance,
+hierarchical aggregation outputs, and the final Tier-3 file. The definitive
+method disclosure, blinding attestation, model-call counts, costs, and archive
+locations are recorded in the benchmark's required `registration.md` and
+`metadata.json`. This report is a supplementary human-readable summary; the
+locked prediction CSV and completed registration are the scored submission
+materials.
+
+```{r session-information}
+sessionInfo()
+```

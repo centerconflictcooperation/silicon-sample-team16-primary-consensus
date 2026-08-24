@@ -1,0 +1,10 @@
+model_id,model,integration,family,temperature,output_mode,seed,n_completions,roster_status,active,notes
+gemini-3.1-pro-preview,gemini-3.1-pro-preview,vertexai,Google,0,structured,42,1,preferred,FALSE,Provisional Google representative; activate only after the Flash-Lite validation run succeeds
+gemini-2.5-pro,gemini-2.5-pro,vertexai,Google,0,structured,42,1,fallback,FALSE,Fallback Google representative if the preview route is unreliable
+claude-opus-4-6,anthropic.claude-opus-4-6,vertexai,Anthropic,0,structured,42,1,preferred,FALSE,Provisional Anthropic representative; switch output_mode to text only if the structured smoke test fails
+claude-haiku-4-5,anthropic.claude-haiku-4-5@20251001,vertexai,Anthropic,0,structured,42,1,diagnostic,FALSE,Lowest-cost Anthropic diagnostic route; useful for pipeline and report testing but not the provisional final family representative
+gpt-5-mini,@gpt-5-mini/gpt-5-mini,,OpenAI,1,structured,42,5,preferred,FALSE,Provisional OpenAI representative; temperature is not controllable upstream and 1 is the gateway-compatible value
+gpt-4o-mini,@gpt-4o-mini-c6f977/gpt-4o-mini,,OpenAI,0,structured,42,1,diagnostic,FALSE,Low-cost diagnostic comparison only; exclude from the locked family-balanced submission unless explicitly preselected
+gpt-oss-120b,@vertexai/gpt-oss-120b-maas,,OpenAI,0,structured,42,1,diagnostic,FALSE,Confirmed Portkey handle for diagnostic testing; exclude from the locked family-balanced submission unless explicitly preselected
+gemini-2.5-flash-lite,gemini-2.5-flash-lite,vertexai,Google,0,structured,42,1,validation,TRUE,Only active route for the initial low-cost end-to-end validation
+gemini-3.1-flash-lite,gemini-3.1-flash-lite,vertexai,Google,0,structured,42,1,diagnostic,FALSE,Low-cost diagnostic comparison only; exclude from the locked family-balanced submission unless explicitly preselected
